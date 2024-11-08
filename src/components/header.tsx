@@ -20,6 +20,7 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 h-[100px] bg-header z-20 flex items-center justify-center">
+      <title></title>
       <nav className="w-[1200px] h-full grid grid-cols-3 items-center">
         <div>
           <h1 className="text-background text-2xl font-bold">
