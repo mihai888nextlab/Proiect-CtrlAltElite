@@ -24,7 +24,7 @@ export default function Header() {
         </div>
         <ul className="flex items-center justify-center">
           {pages.map((page) => (
-            <li className="inline-block mx-4">
+            <li className="inline-block mx-4" key={page.url}>
               <a
                 href={page.url}
                 className="text-background hover:text-primary text-lg font-semibold"
