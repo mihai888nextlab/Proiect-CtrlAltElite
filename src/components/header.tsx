@@ -1,16 +1,20 @@
+import { useRouter } from "next/router";
+
 export default function Header() {
+  const router = useRouter();
+
   const pages = [
     {
       name: "Home",
-      url: "#",
+      url: "/home",
     },
     {
       name: "About",
-      url: "#",
+      url: "/about",
     },
     {
       name: "Contact",
-      url: "#",
+      url: "/contact",
     },
   ];
 
@@ -35,10 +39,10 @@ export default function Header() {
           ))}
         </ul>
         <div className="flex justify-end">
-          <button className="font-semibold text-background px-4 py-2 rounded-lg mr-4 hover:bg-secondary">
+          <button className="font-semibold text-background px-4 py-2 rounded-lg mr-4 hover:bg-secondary" onClick={() => router.push("/login")}>
             Log In
           </button>
-          <button className="font-semibold bg-primary text-background px-8 py-4 rounded-xl hover:bg-secondary">
+          <button className="font-semibold bg-primary text-background px-8 py-4 rounded-xl hover:bg-secondary" onClick={() => router.push("/signin")}>
             Sign Up
           </button>
         </div>
