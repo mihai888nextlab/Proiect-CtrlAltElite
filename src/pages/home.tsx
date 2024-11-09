@@ -41,6 +41,9 @@ export default function Home() {
           <button className="w-1/5 min-h-20 my-24 mx-6 bg-gradient-to-r from-header via-secondary to-header rounded-xl text-3xl hover:from-secondary hover:via-header hover:to-secondary border-secondary border-2 font-semibold text-background px-8 py-4 rounded-xl hover:bg-secondary" onClick={() => router.push("/signin")}>
             Sign Up
           </button>
+          <button className="w-1/5 min-h-20 my-24 mx-6 bg-gradient-to-r from-header via-secondary to-header rounded-xl text-3xl hover:from-secondary hover:via-header hover:to-secondary border-secondary border-2 font-semibold text-background px-8 py-4 rounded-xl hover:bg-secondary" onClick={() => router.push("/login")}>
+            Log In
+          </button>
         </div>
       </main>
     </div>
