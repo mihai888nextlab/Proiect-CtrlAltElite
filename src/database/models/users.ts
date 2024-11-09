@@ -17,6 +17,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  communities: {
+    type: Array,
+    default: [],
+  },
 });
 
 const userModel = mongoose.models.users || mongoose.model("users", userSchema);
