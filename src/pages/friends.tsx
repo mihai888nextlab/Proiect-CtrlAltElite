@@ -1,13 +1,17 @@
 import AppHeader from "@/components/appHeader";
-import { useRouter } from "next/router";
+
 
 export default function Friends(){
-  const router = useRouter();
   return (
     <div>
-      <AppHeader name="Cristi"/>
       <main className="min-h-screen bg-background pt-32">
+            <img src="pfp_placeholder.png" 
+            style={{ 
+                width: '100px', height: 'auto',
+                borderRadius: '50%',  
+                objectFit: 'cover'    }}  >
 
+                </img>
       </main>
     </div>
   );
