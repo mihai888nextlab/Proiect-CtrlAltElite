@@ -7,8 +7,8 @@ export default function Home() {
     <div>
       <Header />
       <main className="min-h-screen bg-background pt-32">
-        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 max-h-20 w-2/6 bg-gradient-to-r from-primary via-secondary to-header rounded-xl border-header border-0">
-            <div className="text-4xl my-2 text-center text-background">Welcome to Social Sync</div>
+        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 max-h-20 w-2/">
+            <div className="text-4xl my-2 text-center text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-header">Welcome to Social Sync</div>
         </div>
         <div className="flex flex-col items-center justify-center px-8 py-8 mx-auto my-12 md:h-screen lg:py-0 min-h-96 h-[12rem] w-10/12 bg-gradient-to-r from-primary via-secondary to-header rounded-xl border-header border-0">
           <p className="text-3xl my-4 text-center text-background">Social Sync is more than just a platform—it's a community built on the things that bring us together. Whether you're a painter, photographer, gamer, or outdoor adventurer, Social Sync connects you with people who share your interests. Discover new hobbies, meet like-minded individuals, and grow your skills through interactive experiences and events.Here, every hobbyist has a place to connect, learn, and create lasting relationships. Whether you're looking for advice, inspiration, or a new friend to share your passion with, Social Sync is where your journey begins.</p>
