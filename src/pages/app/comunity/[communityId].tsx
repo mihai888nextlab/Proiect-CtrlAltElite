@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 import Error from "@/components/error";
 import { FormEvent, useState } from "react";
 import AppHeader from "@/components/appHeader";
-import { Community, User } from "@/pages/type";
+import { Community, User } from "@/type";
 import * as cookieModule from "cookie";
 import { GetServerSideProps } from "next";
-import { Post } from "@/pages/type";
+import { Post } from "@/type";
 import UserPfp from "@/components/userPfp";
 
 export const getServerSideProps = (async (context) => {
@@ -309,9 +309,25 @@ export default function Comunity({
 
         {selected == "events" && (
           <div className="w-full flex justify-center">
-            <div className="w-1/2 p-4 rounded-xl border-2 bg-white">
+            <div className="w-2/3 p-4 rounded-xl border-2 bg-white">
               <h2 className="text-2xl font-bold mb-6">Events in this group</h2>
-              <p>No events yet</p>
+              {/* <p>No events yet</p> */}
+
+              <div className="grid grid-cols-3">
+                <div className="border-2 rounded-xl p-3">
+                  <p className="text-red-800 font-bold">
+                    3 Nov 2024, 07:30 PM ET
+                  </p>
+                  <h2 className="font-semibold text-gray-800">
+                    Workshop informatica
+                  </h2>
+                  <p className="text-sm text-gray-600">Budapest, HU</p>
+
+                  <button className="border-2 border-primary text-primary rounded-lg p-3 font-bold mt-2 w-full">
+                    Attend
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         )}
