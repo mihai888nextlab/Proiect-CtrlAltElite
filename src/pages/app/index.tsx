@@ -1,5 +1,5 @@
 import AppHeader from "@/components/appHeader";
-import { Community, User } from "@/pages/type";
+import { Community, User } from "@/type";
 import { GetServerSideProps } from "next";
 import * as cookieModule from "cookie";
 import { useState } from "react";
@@ -102,11 +102,15 @@ export default function AppDashboard({
 
       <AppHeader name={user.username} />
       <main className="bg-background min-h-screen pt-[75px] font-sans px-36">
-        <h1 className="text-5xl font-bold text-left mt-16">
-          Welcome, {user.username} 👋
-        </h1>
 
-        <h2 className="text-2xl font-semibold mb-8">Discover communities</h2>
+        <div className="flex flex-row items-center">
+          <h1 className="w-[30.15rem] bg-gradient-to-r from-primary via-secondary to-header text-transparent bg-clip-text text-5xl font-bold text-left mt-16">
+            Welcome, {user.username}
+          </h1>
+          <p className="text-5xl font-bold mt-16">👋</p>
+        </div>
+
+        <h2 className="w-[20rem] bg-gradient-to-r from-primary via-secondary to-header text-transparent bg-clip-text text-2xl font-semibold mb-8">Discover communities</h2>
         <div className="grid grid-cols-2 gap-4">
           {communities.map((community) => (
             <div
