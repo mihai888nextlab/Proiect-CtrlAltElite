@@ -7,6 +7,7 @@ import { Community, User } from "@/type";
 import * as cookieModule from "cookie";
 import { GetServerSideProps } from "next";
 import { Post } from "@/type";
+import UserPfp from "@/components/userPfp";
 
 export const getServerSideProps = (async (context) => {
   const cookies = context.req.headers.cookie
@@ -76,7 +77,7 @@ export const getServerSideProps = (async (context) => {
     };
   }
 
-  let postsData = await response.json();
+  let postsData: Post[] = await response.json();
 
   return {
     props: { user: userData, communities: communitiesData, posts: postsData },
@@ -236,10 +237,17 @@ export default function Comunity({
                 {posts.map((post) => (
                   <div className="w-full border-2 rounded-xl p-4 mb-4">
                     <div className="flex justify-between">
-                      <h1 className="font-bold">{post.userId}</h1>
-                      <p className="text-gray-500">
-                        {post.dateCreated.toString()}
-                      </p>
+                      <div className="grid grid-cols-2">
+                        <UserPfp name={post.username} />
+                        <div>
+                          <h1 className="font-bold text-lg m-0">
+                            {post.username}
+                          </h1>
+                          <p className="text-gray-500">
+                            {post.dateCreated.toString()}
+                          </p>
+                        </div>
+                      </div>
                     </div>
                     <p>{post.message}</p>
                   </div>

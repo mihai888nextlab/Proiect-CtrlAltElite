@@ -21,6 +21,7 @@ interface Post {
   userId: string;
   communityId: string;
   dateCreated: Date;
+  username: string;
 }
 
 export type { User, Community, Post };

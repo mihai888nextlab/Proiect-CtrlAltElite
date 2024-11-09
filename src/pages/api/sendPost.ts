@@ -16,6 +16,7 @@ export default async function handler(
     message,
     communityId,
     dateCreated: new Date(),
+    username: user.username,
   });
 
   await post.save();
