@@ -4,7 +4,6 @@ export default function Contact(){
     return(
 
             <div>
-                <Header />
                 <main className="min-h-screen bg-background pt-32">
                     <div className="bg-gradient-to-r from-primary via-secondary to-header py-4 mx-24 my-20 rounded-xl border-header border-0">
                         <div className="flex flex-row space-x-4">

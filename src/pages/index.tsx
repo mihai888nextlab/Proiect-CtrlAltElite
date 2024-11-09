@@ -11,8 +11,7 @@ export default function Home() {
                   <img src="logo.png"         style={{
           width: '500px',
           height: 'auto',
-          mixBlendMode: 'multiply', 
-          height: '400px', 
+          mixBlendMode: 'multiply',  
           border: '2px',
           padding: '10px', 
           borderRadius: '150px',
