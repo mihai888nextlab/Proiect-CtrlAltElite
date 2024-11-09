@@ -1,9 +1,15 @@
 import Header from "@/components/header";
 import { useRouter } from "next/router";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
+import Error from "@/components/error";
+import Loading from "@/components/loading";
 
-export default function Login() {
-  const router=useRouter();
+export default function Signup() {
+  const router = useRouter();
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -12,6 +18,8 @@ export default function Login() {
     const username = formData.get("username") as string;
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
+
+    setLoading(true);
 
     const response = await fetch("/api/auth/register", {
       method: "POST",
@@ -23,13 +31,19 @@ export default function Login() {
 
     if (!response.ok) {
       const data = await response.json();
-      alert(data.error);
+      setError(data.error);
+      setLoading(false);
       return;
     }
+
+    router.push("/app");
   };
 
   return (
     <div>
+      {error && <Error message={error} onClose={() => setError("")} />}
+      {loading && <Loading />}
+
       <Header />
 
       <main className="bg-background">
@@ -110,7 +124,6 @@ export default function Login() {
                   </div>
                   <button
                     type="submit"
-                    onClick={() => router.push("/login")}
                     className="w-full text-white bg-primary hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                   >
                     Register

@@ -55,7 +55,12 @@ export const getServerSideProps = (async (context) => {
 
   if (!response.ok) {
     return {
-      props: { user: userData, communities: [], posts: [] },
+      props: {
+        user: userData,
+        communities: [],
+        posts: [],
+        usersCommunityData: [],
+      },
     };
   }
 
@@ -73,29 +78,65 @@ export const getServerSideProps = (async (context) => {
 
   if (!response.ok) {
     return {
-      props: { user: userData, communities: communitiesData, posts: [] },
+      props: {
+        user: userData,
+        communities: communitiesData,
+        posts: [],
+        usersCommunityData: [],
+      },
     };
   }
 
   let postsData: Post[] = await response.json();
 
+  response = await fetch("http://localhost:3000/api/getUsersByCommunity", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      communityId: context.query.communityId,
+    }),
+  });
+
+  if (!response.ok) {
+    return {
+      props: {
+        user: userData,
+        communities: communitiesData,
+        posts: [],
+        usersCommunityData: [],
+      },
+    };
+  }
+
+  let usersCommunityData = await response.json();
+
   return {
-    props: { user: userData, communities: communitiesData, posts: postsData },
+    props: {
+      user: userData,
+      communities: communitiesData,
+      posts: postsData,
+      usersCommunityData,
+    },
   };
 }) satisfies GetServerSideProps<{
   user: User;
   communities: Community[];
   posts: Post[];
+  usersCommunityData: User[];
 }>;
 
 export default function Comunity({
   user,
   communities,
   posts,
+  usersCommunityData,
 }: {
   user: User;
   communities: Community[];
   posts: Post[];
+  usersCommunityData: User[];
 }) {
   const router = useRouter();
 
@@ -190,6 +231,15 @@ export default function Comunity({
             <li
               className={
                 "p-4 hover:bg-hover rounded-lg font-semibold text-gray-500 cursor-pointer border-blue-500" +
+                (selected == "events" && " border-b-2")
+              }
+              onClick={() => setSelected("events")}
+            >
+              Events
+            </li>
+            <li
+              className={
+                "p-4 hover:bg-hover rounded-lg font-semibold text-gray-500 cursor-pointer border-blue-500" +
                 (selected == "people" && " border-b-2")
               }
               onClick={() => setSelected("people")}
@@ -237,19 +287,44 @@ export default function Comunity({
                 {posts.map((post) => (
                   <div className="w-full border-2 rounded-xl p-4 mb-4">
                     <div className="flex justify-between">
-                      <div className="grid grid-cols-2">
+                      <div className="grid grid-cols-[44px_1fr] gap-4 items-center mb-5">
                         <UserPfp name={post.username} />
                         <div>
                           <h1 className="font-bold text-lg m-0">
                             {post.username}
                           </h1>
-                          <p className="text-gray-500">
-                            {post.dateCreated.toString()}
+                          <p className="text-gray-500 text-sm">
+                            {new Date(post.dateCreated).toLocaleString()}
                           </p>
                         </div>
                       </div>
                     </div>
                     <p>{post.message}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {selected == "events" && (
+          <div className="w-full flex justify-center">
+            <div className="w-1/2 p-4 rounded-xl border-2 bg-white">
+              <h2 className="text-2xl font-bold mb-6">Events in this group</h2>
+              <p>No events yet</p>
+            </div>
+          </div>
+        )}
+
+        {selected == "people" && (
+          <div className="w-full flex justify-center">
+            <div className="w-1/2 p-4 rounded-xl border-2 bg-white">
+              <h2 className="text-2xl font-bold mb-6">People in this group</h2>
+              <div className="grid grid-cols-4 gap-4">
+                {usersCommunityData.map((user) => (
+                  <div className="flex flex-col items-center">
+                    <UserPfp name={user.username} />
+                    <p className="font-semibold">{user.username}</p>
                   </div>
                 ))}
               </div>
