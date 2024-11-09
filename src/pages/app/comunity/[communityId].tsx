@@ -3,11 +3,12 @@ import { useRouter } from "next/router";
 import Error from "@/components/error";
 import { FormEvent, useState } from "react";
 import AppHeader from "@/components/appHeader";
-import { Community, User } from "@/type";
+import { Community, EventType, User } from "@/type";
 import * as cookieModule from "cookie";
 import { GetServerSideProps } from "next";
 import { Post } from "@/type";
 import UserPfp from "@/components/userPfp";
+import EventComponent from "@/components/event";
 
 export const getServerSideProps = (async (context) => {
   const cookies = context.req.headers.cookie
@@ -60,6 +61,7 @@ export const getServerSideProps = (async (context) => {
         communities: [],
         posts: [],
         usersCommunityData: [],
+        events: [],
       },
     };
   }
@@ -83,6 +85,7 @@ export const getServerSideProps = (async (context) => {
         communities: communitiesData,
         posts: [],
         usersCommunityData: [],
+        events: [],
       },
     };
   }
@@ -106,11 +109,36 @@ export const getServerSideProps = (async (context) => {
         communities: communitiesData,
         posts: [],
         usersCommunityData: [],
+        events: [],
       },
     };
   }
 
   let usersCommunityData = await response.json();
+
+  response = await fetch("http://localhost:3000/api/getEvents", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      communityId: context.query.communityId,
+    }),
+  });
+
+  if (!response.ok) {
+    return {
+      props: {
+        user: userData,
+        communities: communitiesData,
+        posts: postsData,
+        usersCommunityData,
+        events: [],
+      },
+    };
+  }
+
+  let eventData = await response.json();
 
   return {
     props: {
@@ -118,6 +146,7 @@ export const getServerSideProps = (async (context) => {
       communities: communitiesData,
       posts: postsData,
       usersCommunityData,
+      events: eventData,
     },
   };
 }) satisfies GetServerSideProps<{
@@ -125,6 +154,7 @@ export const getServerSideProps = (async (context) => {
   communities: Community[];
   posts: Post[];
   usersCommunityData: User[];
+  events: EventType[];
 }>;
 
 export default function Comunity({
@@ -132,11 +162,13 @@ export default function Comunity({
   communities,
   posts,
   usersCommunityData,
+  events,
 }: {
   user: User;
   communities: Community[];
   posts: Post[];
   usersCommunityData: User[];
+  events: EventType[];
 }) {
   const router = useRouter();
 
@@ -314,19 +346,9 @@ export default function Comunity({
               {/* <p>No events yet</p> */}
 
               <div className="grid grid-cols-3">
-                <div className="border-2 rounded-xl p-3">
-                  <p className="text-red-800 font-bold">
-                    3 Nov 2024, 07:30 PM ET
-                  </p>
-                  <h2 className="font-semibold text-gray-800">
-                    Workshop informatica
-                  </h2>
-                  <p className="text-sm text-gray-600">Budapest, HU</p>
-
-                  <button className="border-2 border-primary text-primary rounded-lg p-3 font-bold mt-2 w-full">
-                    Attend
-                  </button>
-                </div>
+                {events.map((event) => (
+                  <EventComponent event={event} />
+                ))}
               </div>
             </div>
           </div>

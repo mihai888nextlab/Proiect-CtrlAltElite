@@ -24,4 +24,13 @@ interface Post {
   username: string;
 }
 
-export type { User, Community, Post };
+interface EventType {
+  name: string;
+  description: string;
+  date: Date;
+  location: string;
+  group: string;
+  organiser: string;
+}
+
+export type { User, Community, Post, EventType };

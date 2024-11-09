@@ -13,11 +13,6 @@ export default function AppHeader({ name }: { name: string }) {
           </h1>
         </div>
         <div className="h-full flex items-center">
-          {/* <img
-            src="pfp_placeholder.png"
-            alt=""
-            className="h-full rounded-full"
-          /> */}
           <div className="flex flex-col items-center mx-3 cursor-pointer">
             <TiMessages className="text-3xl" />
             <button className="font-semibold text-xs">Messages</button>
