@@ -15,7 +15,7 @@ export default function About() {
                 <div className="bg-gradient-to-r  from-header via-secondary to-header text-transparent bg-clip-text absolute top-[4rem] font-semibold text-3xl w-52">0 Communities</div>
                 <div className="bg-gradient-to-r  from-header via-secondary to-header text-transparent bg-clip-text absolute top-[6rem] font-semibold text-3xl w-40">0 Friends</div>
             </div>
-            <button className="absolute right-[5rem] top-[12rem] h-[3rem] w-[3rem] hover:animate-spin" onClick={() => router.push("/home")}>
+            <button className="absolute right-[5rem] top-[12rem] h-[3rem] w-[3rem] hover:animate-spin" onClick={() => router.push("/settings")}>
                 <IoMdSettings className="h-[3rem] w-[3rem]"/>
             </button>
         </div>
