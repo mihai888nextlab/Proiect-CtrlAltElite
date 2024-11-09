@@ -1,6 +1,8 @@
 import Header from "@/components/header";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const router = useRouter();
   return (
     <div>
       <Header />
@@ -13,25 +15,32 @@ export default function Home() {
           <p className="text-4xl my-4 mt-2 text-center text-background">Join us today and connect with like-minded individuals who share your passions.</p>
         </div>
         <div className="items-center justify-center flex flex-row">
-          <div className="min-h-20 w-2/5 mx-6 bg-gradient-to-r from-primary to-secondary rounded-xl border-header border-0">
-            <p className="text-5xl my-3 text-center text-background">Why Join Social Sync?</p>
+          <div className="min-h-20 w-2/5 mx-6 mt-20 my=10 bg-gradient-to-r from-primary to-secondary rounded-xl border-header border-0">
+            <p className="text-5xl my-5 text-center text-background">Why Join Social Sync?</p>
 
           </div>
-          <div className="w-2/5 min-h-20 my-5 mx-6 bg-gradient-to-r from-secondary to-header rounded-xl border-header border-0">
-            <p className="text-5xl my-3 text-center text-background">Ready to Connect?</p>
+          <div className="w-2/5 min-h-20 mt-20 my=10 mx-6 bg-gradient-to-r from-secondary to-header rounded-xl border-header border-0">
+            <p className="text-5xl my-5 text-center text-background">Ready to Connect?</p>
           </div>
         </div>
         <div className="items-center justify-center flex flex-row">
-          <div className="min-h-20 w-2/5 mx-6 bg-gradient-to-r h-[26rem] from-primary to-secondary rounded-xl border-header border-0">
-            <p className="text-3xl my-4 text-center text-background">By joining Social Sync, you’ll gain access to:</p>
-            <p className="text-2xl my-3 text-center text-background">-A Welcoming Community: Meet new people who are as passionate about your interests as you are.</p>
-            <p className="text-2xl my-3 text-center text-background">-Exclusive Events: Participate in workshops, competitions, and hobby-related meetups that help you grow.</p>
-            <p className="text-2xl my-3 text-center text-background">-Learn New Skills: Share knowledge and learn from others in a collaborative environment.</p>
-            <p className="text-2xl my-3 text-center text-background">-Grow Your Network: Expand your social circle, collaborate with like-minded individuals, and create lasting friendships.</p>
+          <div className="min-h-20 w-2/5 mx-6 bg-gradient-to-r h-[28rem] from-primary to-secondary rounded-xl border-header border-0">
+            <p className="text-3xl my-4 mx-4 text-center text-background">By joining Social Sync, you’ll gain access to:</p>
+            <p className="text-2xl my-3 mx-4 text-center text-background">-A Welcoming Community: Meet new people who are as passionate about your interests as you are.</p>
+            <p className="text-2xl my-3 mx-4 text-center text-background">-Exclusive Events: Participate in workshops, competitions, and hobby-related meetups that help you grow.</p>
+            <p className="text-2xl my-3 mx-4 text-center text-background">-Learn New Skills: Share knowledge and learn from others in a collaborative environment.</p>
+            <p className="text-2xl my-3 mx-4 text-center text-background">-Grow Your Network: Expand your social circle, collaborate with like-minded individuals, and create lasting friendships.</p>
           </div>
-          <div className="w-2/5 min-h-20 my-5 mx-6 bg-gradient-to-r h-[26rem] from-secondary to-header rounded-xl border-header border-0">
+          <div className="w-2/5 min-h-20 my-5 mx-6 bg-gradient-to-r h-[28rem] from-secondary to-header rounded-xl border-header border-0">
             <p className="text-3xl my-24 text-center text-background">Whether you’re looking to discover a new hobby, enhance your current skills, or make new friends, Social Sync is the place for you. Sign up today to join a growing community of passionate individuals from around the world.</p>
           </div>
+          
+        </div>
+        
+        <div className="items-center justify-center flex flex-row">
+          <button className="w-1/5 min-h-20 my-20 mx-6 bg-gradient-to-r from-header via-secondary to-header rounded-xl text-3xl border-secondary border-2 font-semibold text-background px-8 py-4 rounded-xl hover:bg-secondary" onClick={() => router.push("/signin")}>
+            Sign Up
+          </button>
         </div>
       </main>
     </div>
