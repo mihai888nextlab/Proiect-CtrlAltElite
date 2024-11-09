@@ -43,7 +43,7 @@ export default function Header() {
           <button className="font-semibold text-background px-4 py-2 rounded-lg mr-4 hover:bg-secondary" onClick={() => router.push("/login")}>
             Log In
           </button>
-          <button className="font-semibold bg-primary text-background px-8 py-4 rounded-xl hover:bg-secondary" onClick={() => router.push("/signin")}>
+          <button className="font-semibold bg-primary text-background px-8 py-4 rounded-xl hover:bg-secondary" onClick={() => router.push("/signup")}>
             Sign Up
           </button>
         </div>
