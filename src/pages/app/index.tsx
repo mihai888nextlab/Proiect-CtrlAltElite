@@ -104,7 +104,7 @@ export default function AppDashboard({
       <main className="bg-background min-h-screen pt-[75px] font-sans px-36">
 
         <div className="flex flex-row items-center">
-          <h1 className="w-[30.15rem] bg-gradient-to-r from-primary via-secondary to-header text-transparent bg-clip-text text-5xl font-bold text-left mt-16">
+          <h1 className="w-[31rem] bg-gradient-to-r from-primary via-secondary to-header text-transparent bg-clip-text text-5xl font-bold text-left mt-16">
             Welcome, {user.username}
           </h1>
           <p className="text-5xl font-bold mt-16">👋</p>

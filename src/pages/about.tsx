@@ -4,8 +4,8 @@ export default function About() {
   return (
     <div>
       <Header />
-      <main className="bg-background pt-32">
-        <div className="bg-gradient-to-r from-primary via-secondary to-header py-4 mx-24 my-20 rounded-xl border-header border-0">
+      <main className="bg-background pt-52 pb-20">
+        <div className="bg-gradient-to-r from-primary via-secondary to-header py-4 mx-24 rounded-2xl border-header border-0">
             <h1 className="font-semibold text-3xl mx-28 my-6 text-background">About Social Sync</h1>
             <p className="font-semibold text-2xl mx-28 my-6 text-background">Welcome to Social Sync, where passions meet and communities thrive!</p>
             <p className="font-semibold text-2xl mx-28 my-6 text-background">At Social Sync, we believe that hobbies have the incredible power to bring people together. Whether you're an avid photographer, a gamer, a gardener, or someone who loves crafting, we know that your passion can connect you with others who share your enthusiasm.</p>
