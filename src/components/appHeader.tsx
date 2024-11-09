@@ -1,7 +1,9 @@
 import { TiMessages } from "react-icons/ti";
 import { FaUserFriends } from "react-icons/fa";
+import { useRouter } from "next/router"
 
 export default function AppHeader({ name }: { name: string }) {
+  const router = useRouter();
   return (
     <header className="fixed top-0 left-0 right-0 h-[75px] z-20 bg-header text-white flex items-center justify-center">
       <nav className="w-full px-8 h-full flex items-center justify-between">
@@ -24,11 +26,10 @@ export default function AppHeader({ name }: { name: string }) {
             <FaUserFriends className="text-3xl" />
             <p className="font-semibold text-xs">Friends</p>
           </div>
-          <div className="cursor-pointer ml-3">
+          <button className=" ml-3" onClick={() => router.push("/test-cristi/account")}>
             <div className="h-11 w-11 rounded-full flex items-center justify-center bg-primary text-xl font-bold">
-              {name[0].toUpperCase()}
             </div>
-          </div>
+          </button>
         </div>
       </nav>
     </header>
