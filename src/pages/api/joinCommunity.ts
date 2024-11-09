@@ -30,5 +30,17 @@ export default async function handler(
     { communities: userCommunities }
   );
 
+  if (!communities[0].members) {
+    await communityModel.updateOne(
+      { _id: communityId },
+      { $inc: { members: 1 } }
+    );
+  } else {
+    await communityModel.updateOne(
+      { _id: communityId },
+      { members: communities[0].members + 1 }
+    );
+  }
+
   return res.status(200).json(communities);
 }

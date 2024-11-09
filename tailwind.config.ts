@@ -13,6 +13,7 @@ export default {
         header: "#FA4032",
         primary: "#FAB12F",
         secondary: "#FA812F",
+        hover: "#FDD7B5",
       },
     },
   },

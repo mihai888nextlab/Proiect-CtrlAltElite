@@ -12,6 +12,15 @@ interface Community {
   name: string;
   description: string;
   img: string;
+  members?: number;
 }
 
-export type { User, Community };
+interface Post {
+  _id: string;
+  message: string;
+  userId: string;
+  communityId: string;
+  dateCreated: Date;
+}
+
+export type { User, Community, Post };
