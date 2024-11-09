@@ -1,5 +1,5 @@
 import AppHeader from "@/components/appHeader";
-import { Community, User } from "@/pages/type";
+import { Community, User } from "@/type";
 import { GetServerSideProps } from "next";
 import * as cookieModule from "cookie";
 import { useState } from "react";
