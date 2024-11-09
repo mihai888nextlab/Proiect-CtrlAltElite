@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 import Error from "@/components/error";
 import { FormEvent, useState } from "react";
 import AppHeader from "@/components/appHeader";
-import { Community, User } from "@/type";
+import { Community, User } from "@/pages/type";
 import * as cookieModule from "cookie";
 import { GetServerSideProps } from "next";
-import { Post } from "@/type";
+import { Post } from "@/pages/type";
 import UserPfp from "@/components/userPfp";
 
 export const getServerSideProps = (async (context) => {
