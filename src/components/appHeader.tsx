@@ -14,7 +14,6 @@ export default function AppHeader({ name }: { name: string }) {
         </div>
         <div className="h-full flex items-center">
           <div className="flex flex-col items-center mx-3 cursor-pointer">
-<<<<<<< HEAD
           <button className="" onClick={() => router.push("/app")}>
             <TiMessages className="text-3xl" />        </button>
             <button className="font-semibold text-xs " >Messages</button>
@@ -24,6 +23,7 @@ export default function AppHeader({ name }: { name: string }) {
               <FaUserFriends className="text-3xl" />
             </button>
 
+            <button className="font-semibold text-xs">Friends</button>
           </div>
           <button
             className=" ml-3"
