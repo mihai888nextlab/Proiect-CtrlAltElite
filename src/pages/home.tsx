@@ -15,7 +15,7 @@ export default function Home() {
           <p className="font-semibold text-4xl my-4 mt-2 text-center text-background">Join us today and connect with like-minded individuals who share your passions.</p>
         </div>
         <div className="items-center justify-center flex flex-row">
-          <div className="min-h-20 w-2/5 mx-6 mt-20 my=10 bg-gradient-to-r from-primary to-secondary rounded-xl border-header border-0">
+          <div className="min-h-20 w-2/5 mx-6  bg-gradient-to-r from-primary to-secondary rounded-xl border-header border-0">
             <p className="font-semibold text-5xl my-5 text-center text-background">Why Join Social Sync?</p>
 
           </div>
