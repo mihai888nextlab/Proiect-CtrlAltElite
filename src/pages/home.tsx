@@ -1,5 +1,6 @@
 import Header from "@/components/header";
 import { useRouter } from "next/router";
+import Footer from "@/components/footer";
 
 export default function Home() {
   const router = useRouter();
@@ -62,6 +63,7 @@ export default function Home() {
           </button>
         </div>
       </main>
+      <Footer/>
     </div>
   );
 }

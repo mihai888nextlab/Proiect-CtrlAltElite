@@ -1,4 +1,5 @@
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 export default function About() {
   return (
@@ -19,6 +20,7 @@ export default function About() {
             <p className="font-semibold text-2xl mx-28 my-6 text-background">Join Social Sync today—where hobbies become more than just pastimes; they become pathways to connection!</p>
         </div>
       </main>
+      <Footer/>
     </div>
   );
 }

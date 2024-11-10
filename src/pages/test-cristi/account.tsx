@@ -1,4 +1,5 @@
 import AppHeader from "@/components/appHeader";
+import Footer from "@/components/footer";
 import { IoMdSettings } from "react-icons/io";
 import { useRouter } from "next/router";
 import { Community, User } from "@/type";
@@ -79,6 +80,7 @@ export default function Account({
   return (
     <div>
       <AppHeader  name={user.username} />
+      
       <main className="bg-background">
         <div className="h-96">
             <div className="bg-primary rounded-full absolute left-[3rem] top-[6.75rem] h-60 w-60"></div>
@@ -105,6 +107,8 @@ export default function Account({
 
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }
