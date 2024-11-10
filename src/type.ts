@@ -6,6 +6,11 @@ interface User {
   password: string;
   communities: string[];
   events?: string[];
+  points?: number;
+  pointsHistory?: {
+    points: number;
+    date: Date;
+  }[];
 }
 
 interface Community {

@@ -320,7 +320,7 @@ export default function Comunity({
         />
       )}
 
-      <AppHeader name={user.username} />
+      <AppHeader name={user.username} points={user.points} />
       <main className="bg-background min-h-screen pt-[75px] font-sans px-36 pb-10">
         <div
           className="w-full h-[400px] bg-cover bg-center rounded-b-xl"

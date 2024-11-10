@@ -162,7 +162,7 @@ export default function Event({
       {error && <Error message={error} onClose={() => setError("")} />}
       {loading && <Loading />}
 
-      <AppHeader name={user.username} />
+      <AppHeader name={user.username} points={user.points} />
 
       <main className="bg-background min-h-screen pt-[75px] font-sans px-36 pb-10">
         <div className="w-full flex justify-center mt-10">

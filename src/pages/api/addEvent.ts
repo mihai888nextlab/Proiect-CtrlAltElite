@@ -18,5 +18,13 @@ export default async function handler(
 
   await event.save();
 
+  await fetch("http://localhost:3000/api/addPoints", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ points: 20, user: { _id: organiser } }),
+  });
+
   return res.status(200).json(event);
 }

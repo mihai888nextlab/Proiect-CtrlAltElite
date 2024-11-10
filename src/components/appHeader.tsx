@@ -3,8 +3,15 @@ import { FaUserFriends } from "react-icons/fa";
 import { useRouter } from "next/router";
 import { MdEventNote } from "react-icons/md";
 import { FaForumbee } from "react-icons/fa";
+import { MdLeaderboard } from "react-icons/md";
 
-export default function AppHeader({ name }: { name: string }) {
+export default function AppHeader({
+  name,
+  points,
+}: {
+  name: string;
+  points: number | undefined;
+}) {
   const router = useRouter();
   return (
     <header className="fixed top-0 left-0 right-0 h-[75px] z-20 bg-header text-white flex items-center justify-center">
@@ -19,37 +26,43 @@ export default function AppHeader({ name }: { name: string }) {
         </div>
         <div className="h-full flex items-center">
           <div className="flex flex-col items-center mx-3 cursor-pointer">
-            <button className="" onClick={() => router.push("/app/comunity")}>
+            <button
+              className="flex flex-col justify-center items-center"
+              onClick={() => router.push("/app/comunity")}
+            >
               <FaForumbee className="text-3xl" />
             </button>
 
             <button className="font-semibold text-xs ">Comunities</button>
           </div>
 
-          <div className="flex flex-col items-center mx-3 cursor-pointer">
-            <button className="" onClick={() => router.push("/app/event")}>
+          <div className="flex flex-col items-center justify-center mx-3 cursor-pointer">
+            <button
+              className="flex flex-col justify-center items-center"
+              onClick={() => router.push("/app/event")}
+            >
               <MdEventNote className="text-3xl" />
               <span className="text-xs font-semibold">Events</span>
             </button>
           </div>
 
-          <div className="flex flex-col items-center mx-3 cursor-pointer">
-            <button className="" onClick={() => router.push("/app")}>
-              <TiMessages className="text-3xl" />{" "}
+          <div className="flex flex-col items-center justify-center mx-3 cursor-pointer">
+            <button
+              className="flex flex-col justify-center items-center"
+              onClick={() => router.push("/app/leaderboard")}
+            >
+              <MdLeaderboard className="text-3xl" />
+              <span className="text-xs font-semibold">Leaderboard</span>
             </button>
-            <button className="font-semibold text-xs ">Messages</button>
           </div>
-          <div className="flex flex-col items-center mx-3 cursor-pointer">
-            <button className="" onClick={() => router.push("/friends")}>
-              <FaUserFriends className="text-3xl" />
-            </button>
 
-            <button className="font-semibold text-xs">Friends</button>
-          </div>
           <button
-            className=" ml-3"
-            onClick={() => router.push("/test-cristi/account")}
+            className=" ml-3 flex items-center"
+            onClick={() => router.push("/app/account")}
           >
+            <p className="text-primary font-bold mr-2 text-xl">
+              {points || 0} Points
+            </p>
             <div className="h-11 w-11 rounded-full flex items-center justify-center bg-primary hover:bg-secondary text-xl font-bold">
               {name[0].toUpperCase()}
             </div>

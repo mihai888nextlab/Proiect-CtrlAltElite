@@ -29,6 +29,10 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  pointsHistory: {
+    type: Array,
+    default: [],
+  },
 });
 
 const userModel = mongoose.models.users || mongoose.model("users", userSchema);

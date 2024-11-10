@@ -167,7 +167,7 @@ export default function App({
       {error && <Error message={error} onClose={() => setError("")} />}
       {loading && <Loading />}
 
-      <AppHeader name={user.username} />
+      <AppHeader name={user.username} points={user.points} />
       <main className="bg-background min-h-screen pt-[75px] font-sans px-36">
         <div className="inline-flex justify-center">
           <h1 className="bg-gradient-to-r from-primary via-secondary to-header text-transparent bg-clip-text text-5xl font-bold text-left mt-16">

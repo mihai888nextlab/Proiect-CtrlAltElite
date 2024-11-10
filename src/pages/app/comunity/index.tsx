@@ -100,7 +100,7 @@ export default function AppDashboard({
       {error && <Error message={error} onClose={() => setError("")} />}
       {loading && <Loading />}
 
-      <AppHeader name={user.username} />
+      <AppHeader name={user.username} points={user.points} />
       <main className="bg-background min-h-screen pt-[75px] font-sans px-36">
         <h2 className="w-[20rem] font-bold text-3xl my-8">
           Discover communities
