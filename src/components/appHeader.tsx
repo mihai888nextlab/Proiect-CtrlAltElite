@@ -14,17 +14,16 @@ export default function AppHeader({ name }: { name: string }) {
         </div>
         <div className="h-full flex items-center">
           <div className="flex flex-col items-center mx-3 cursor-pointer">
-            <button className="" onClick={() => router.push("/app")}>
-              <TiMessages className="text-3xl" />
-            </button>
-            <p className="font-semibold text-xs">Messages</p>
-          </div>
+          <button className="" onClick={() => router.push("/app")}>
+            <TiMessages className="text-3xl" />        </button>
+            <button className="font-semibold text-xs " >Messages</button>
+            </div>
           <div className="flex flex-col items-center mx-3 cursor-pointer">
             <button className="" onClick={() => router.push("/friends")}>
               <FaUserFriends className="text-3xl" />
             </button>
 
-            <p className="font-semibold text-xs">Friends</p>
+            <button className="font-semibold text-xs">Friends</button>
           </div>
           <button
             className=" ml-3"
