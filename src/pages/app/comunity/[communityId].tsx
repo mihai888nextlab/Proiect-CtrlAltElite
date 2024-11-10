@@ -13,6 +13,7 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import AddEventModal from "@/components/modals/addEventModal";
 import { usePathname } from "next/navigation";
 import { set } from "mongoose";
+import Footer from "@/components/footer";
 
 export const getServerSideProps = (async (context) => {
   const cookies = context.req.headers.cookie
@@ -443,6 +444,7 @@ export default function Comunity({
                 ))}
               </div>
             </div>
+            
           </div>
         )}
 
@@ -488,6 +490,7 @@ export default function Comunity({
           </div>
         )}
       </main>
+      <Footer />
     </div>
   );
 }
