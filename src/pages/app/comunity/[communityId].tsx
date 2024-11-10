@@ -11,6 +11,8 @@ import UserPfp from "@/components/userPfp";
 import EventComponent from "@/components/event";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import AddEventModal from "@/components/modals/addEventModal";
+import { usePathname } from "next/navigation";
+import { set } from "mongoose";
 
 export const getServerSideProps = (async (context) => {
   const cookies = context.req.headers.cookie
@@ -173,10 +175,19 @@ export default function Comunity({
   events: EventType[];
 }) {
   const router = useRouter();
+  const pathname = usePathname();
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [selected, setSelected] = useState("about");
+  const [inpVal, setInpVal] = useState("");
+  const [selected, setSelected] = useState(
+    typeof router.query.selected === "string" &&
+      ["about", "discussion", "events", "people"].includes(
+        router.query.selected
+      )
+      ? router.query.selected
+      : "about"
+  );
 
   const [modalOpen, setModalOpen] = useState("");
 
@@ -210,7 +221,9 @@ export default function Comunity({
       return;
     }
 
-    window.location.reload();
+    setInpVal("");
+    router.push(`${pathname}?selected=${selected}`);
+    setLoading(false);
   };
 
   const onAddEventSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -246,7 +259,8 @@ export default function Comunity({
       return;
     }
 
-    window.location.reload();
+    router.push(`${pathname}?selected=${selected}`);
+    setLoading(false);
   };
 
   const onUnjoinEvent = async (eventId: string) => {
@@ -267,7 +281,8 @@ export default function Comunity({
       return;
     }
 
-    window.location.reload();
+    router.push(`${pathname}?selected=${selected}`);
+    setLoading(false);
   };
 
   const onJoinEvent = async (eventId: string) => {
@@ -288,7 +303,8 @@ export default function Comunity({
       return;
     }
 
-    window.location.reload();
+    router.push(`${pathname}?selected=${selected}`);
+    setLoading(false);
   };
 
   return (
@@ -372,7 +388,7 @@ export default function Comunity({
 
         {selected == "about" && (
           <div className="w-full flex justify-center">
-            <div className="w-1/2 p-4 rounded-xl border-2 bg-white">
+            <div className="w-2/3 p-4 rounded-xl border-2 bg-white">
               <h2 className="text-2xl font-bold mb-6">About this group</h2>
               <p>
                 {
@@ -387,7 +403,7 @@ export default function Comunity({
 
         {selected == "discussion" && (
           <div className="w-full flex justify-center">
-            <div className="w-1/2 p-4 rounded-xl border-2 bg-white">
+            <div className="w-2/3 p-4 rounded-xl border-2 bg-white">
               <div className="grid gap-4 grid-cols-[44px_1fr]">
                 <div className="h-11 w-11 rounded-full flex items-center justify-center bg-primary text-white text-xl font-bold cursor-pointer">
                   {user.username[0].toUpperCase()}
@@ -397,6 +413,8 @@ export default function Comunity({
                     type="text"
                     name="message"
                     id="message"
+                    value={inpVal}
+                    onChange={(e) => setInpVal(e.target.value)}
                     className="w-full bg-gray-200 h-[40px] rounded-3xl p-4"
                     placeholder="Write a post ..."
                   />
@@ -456,7 +474,7 @@ export default function Comunity({
 
         {selected == "people" && (
           <div className="w-full flex justify-center">
-            <div className="w-1/2 p-4 rounded-xl border-2 bg-white">
+            <div className="w-2/3 p-4 rounded-xl border-2 bg-white">
               <h2 className="text-2xl font-bold mb-6">People in this group</h2>
               <div className="grid grid-cols-4 gap-4">
                 {usersCommunityData.map((user) => (
