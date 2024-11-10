@@ -29,10 +29,7 @@ export default function AppHeader({ name }: { name: string }) {
           <div className="flex flex-col items-center mx-3 cursor-pointer">
             <button className="" onClick={() => router.push("/app/event")}>
               <MdEventNote className="text-3xl" />
-            </button>
-
-            <button className="font-semibold text-xs hover:text-primary">
-              Events
+              <span className="text-xs font-semibold">Events</span>
             </button>
           </div>
 
