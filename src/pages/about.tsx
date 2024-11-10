@@ -3,7 +3,7 @@ import Header from "@/components/header";
 export default function About() {
   return (
     <div>
-      <Header />
+      <Header/>
       <main className="bg-background pt-52 pb-20">
         <div className="bg-gradient-to-r from-primary via-secondary to-header py-4 mx-24 rounded-2xl border-header border-0">
             <h1 className="font-semibold text-3xl mx-28 my-6 text-background">About Social Sync</h1>
