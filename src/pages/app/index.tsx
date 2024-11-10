@@ -132,7 +132,9 @@ export default function AppDashboard({
               {!user.communities.includes(community._id) && (
                 <button
                   className="m-0 bg-blue-800 rounded-xl text-2xl px-6 py-3 hover:bg-blue-600"
-                  onClick={() => joinCommunity(community._id)}
+                  onClick={() => joinCommunity(community._id)
+                    {user.points}+=10;
+                  }
                 >
                   Join Community
                 </button>
