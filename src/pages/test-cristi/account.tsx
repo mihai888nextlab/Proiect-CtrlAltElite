@@ -7,6 +7,8 @@ import * as cookieModule from "cookie";
 import { useState } from "react";
 import Error from "@/components/error";
 import Loading from "@/components/loading";
+import { CiCirclePlus } from "react-icons/ci";
+import { CiSquarePlus } from "react-icons/ci";
 
 export const getServerSideProps = (async (context) => {
   const cookies = context.req.headers.cookie
@@ -82,7 +84,13 @@ export default function Account({
             <div className="bg-primary rounded-full absolute left-[3rem] top-[6.75rem] h-60 w-60"></div>
             <div className="rounded-xl absolute left-[20rem] top-[9rem]">
                 <div className="bg-gradient-to-r  from-header via-secondary to-header text-transparent bg-clip-text absolute top-[1rem] font-bold text-5xl w-[30rem]">{user.username}</div>
-                <div className="bg-gradient-to-r  from-header via-secondary to-header text-transparent bg-clip-text absolute top-[4rem] font-semibold text-3xl w-52">{user.communities.length} Communities</div>
+                <div className="bg-gradient-to-r  from-header via-secondary to-header text-transparent bg-clip-text absolute top-[4rem] font-semibold text-3xl w-52">
+                  {user.communities.length} Communities
+                  <button className="flex flex-col items-center justify-center h-[3rem] w-[3rem]" onClick={() => router.push("/settings")}>
+                    <CiCirclePlus className="h-[3rem] w-[3rem]"/>
+                  </button>
+                  
+                </div>
                 <div className="bg-gradient-to-r  from-header via-secondary to-header text-transparent bg-clip-text absolute top-[6rem] font-semibold text-3xl w-40">0 Friends</div>
             </div>
             <button className="absolute right-[5rem] top-[12rem] h-[3rem] w-[3rem] hover:animate-spin" onClick={() => router.push("/settings")}>
