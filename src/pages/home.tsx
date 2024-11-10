@@ -11,6 +11,22 @@ export default function Home() {
             <div className="font-semibold text-4xl my-2 text-center text-background bg-clip-text bg-gradient-to-r from-primary via-secondary to-header">Welcome to Social Sync</div>
         </div>
         <div className="flex flex-col items-center justify-center px-8 py-8 mx-auto my-12 md:h-screen lg:py-0 h-[12rem] w-10/12 bg-gradient-to-r from-primary via-secondary to-header rounded-xl border-header border-0">
+        <img
+            src="logo.png"
+            style={{
+              width: "650px",
+              height: "315px",
+              mixBlendMode: "multiply",
+              border: "2px",
+              padding: "10px",
+              borderRadius: "100px",
+              overflow: "hidden",
+              backgroundImage: "background",
+              display: "flex",
+            }}
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 "
+          ></img>
+
           <p className="font-semibold text-3xl my-4 text-center text-background">Social Sync is more than just a platform—it's a community built on the things that bring us together. Whether you're a painter, photographer, gamer, or outdoor adventurer, Social Sync connects you with people who share your interests. Discover new hobbies, meet like-minded individuals, and grow your skills through interactive experiences and events.Here, every hobbyist has a place to connect, learn, and create lasting relationships. Whether you're looking for advice, inspiration, or a new friend to share your passion with, Social Sync is where your journey begins.</p>
           <p className="font-semibold text-4xl my-4 mt-2 text-center text-background">Join us today and connect with like-minded individuals who share your passions.</p>
         </div>
