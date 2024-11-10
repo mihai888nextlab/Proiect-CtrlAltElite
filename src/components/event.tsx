@@ -16,7 +16,7 @@ export default function EventComponent({
 
   return (
     <div className="border-2 rounded-xl p-3 cursor-pointer">
-      <div onClick={() => router.push(`/event/${event._id}`)}>
+      <div onClick={() => router.push(`/app/event/${event._id}`)}>
         <p className="text-red-800 font-bold">
           {new Date(event.date).toLocaleString()}
         </p>

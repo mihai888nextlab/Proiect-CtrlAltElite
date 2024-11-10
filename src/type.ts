@@ -33,6 +33,8 @@ interface EventType {
   location: string;
   group: string;
   organiser: string;
+  organiserUsername: string;
+  attendees: User[];
 }
 
 export type { User, Community, Post, EventType };

@@ -10,21 +10,24 @@ export default function AppHeader({ name }: { name: string }) {
     <header className="fixed top-0 left-0 right-0 h-[75px] z-20 bg-header text-white flex items-center justify-center">
       <nav className="w-full px-8 h-full flex items-center justify-between">
         <div>
-          <h1 className="text-background text-2xl font-bold">
+          <h1
+            className="text-background text-2xl font-bold cursor-pointer"
+            onClick={() => router.push("/app")}
+          >
             Social<span className="text-primary">Sync</span>
           </h1>
         </div>
         <div className="h-full flex items-center">
           <div className="flex flex-col items-center mx-3 cursor-pointer">
-            <button className="" onClick={() => router.push("/app")}>
-              <FaForumbee className="text-3xl" />        
+            <button className="" onClick={() => router.push("/app/comunity")}>
+              <FaForumbee className="text-3xl" />
             </button>
 
-            <button className="font-semibold text-xs " >Comunities</button>
+            <button className="font-semibold text-xs ">Comunities</button>
           </div>
 
           <div className="flex flex-col items-center mx-3 cursor-pointer">
-            <button className="" onClick={() => router.push("/events")}>
+            <button className="" onClick={() => router.push("/app/event")}>
               <MdEventNote className="text-3xl" />
             </button>
 
@@ -32,10 +35,11 @@ export default function AppHeader({ name }: { name: string }) {
           </div>
 
           <div className="flex flex-col items-center mx-3 cursor-pointer">
-          <button className="" onClick={() => router.push("/app")}>
-            <TiMessages className="text-3xl" />        </button>
-            <button className="font-semibold text-xs " >Messages</button>
-            </div>
+            <button className="" onClick={() => router.push("/app")}>
+              <TiMessages className="text-3xl" />{" "}
+            </button>
+            <button className="font-semibold text-xs ">Messages</button>
+          </div>
           <div className="flex flex-col items-center mx-3 cursor-pointer">
             <button className="" onClick={() => router.push("/friends")}>
               <FaUserFriends className="text-3xl" />
