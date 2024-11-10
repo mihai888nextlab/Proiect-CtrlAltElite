@@ -5,7 +5,7 @@ interface User {
   email: string;
   password: string;
   communities: string[];
-  events: string[];
+  events?: string[];
 }
 
 interface Community {

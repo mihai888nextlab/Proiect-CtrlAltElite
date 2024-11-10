@@ -423,7 +423,7 @@ export default function Comunity({
                 {events.map((event) => (
                   <EventComponent
                     event={event}
-                    attending={user.events.includes(event._id)}
+                    attending={user.events?.includes(event._id) ?? false}
                     onBtnClick={onJoinEvent}
                   />
                 ))}
