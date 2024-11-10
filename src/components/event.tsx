@@ -4,11 +4,13 @@ import { useRouter } from "next/router";
 export default function EventComponent({
   event,
   attending,
-  onBtnClick,
+  joinEvent,
+  unjoinEvent,
 }: {
   event: EventType;
   attending: boolean;
-  onBtnClick: (eventId: string) => void;
+  joinEvent: (eventId: string) => void;
+  unjoinEvent: (eventId: string) => void;
 }) {
   const router = useRouter();
 
@@ -25,14 +27,14 @@ export default function EventComponent({
       {attending ? (
         <button
           className="border-2 border-primary bg-primary text-white rounded-lg p-3 font-bold mt-2 w-full"
-          onClick={() => onBtnClick(event._id)}
+          onClick={() => unjoinEvent(event._id)}
         >
           Attending
         </button>
       ) : (
         <button
           className="border-2 border-primary text-primary rounded-lg p-3 font-bold mt-2 w-full"
-          onClick={() => onBtnClick(event._id)}
+          onClick={() => joinEvent(event._id)}
         >
           Attend
         </button>

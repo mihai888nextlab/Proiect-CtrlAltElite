@@ -249,6 +249,27 @@ export default function Comunity({
     window.location.reload();
   };
 
+  const onUnjoinEvent = async (eventId: string) => {
+    setLoading(true);
+
+    const response = await fetch("/api/unjoinEvent", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ eventId, user }),
+    });
+
+    if (!response.ok) {
+      const data = await response.json();
+      setError(data.error);
+      setLoading(false);
+      return;
+    }
+
+    window.location.reload();
+  };
+
   const onJoinEvent = async (eventId: string) => {
     setLoading(true);
 
@@ -424,7 +445,8 @@ export default function Comunity({
                   <EventComponent
                     event={event}
                     attending={user.events?.includes(event._id) ?? false}
-                    onBtnClick={onJoinEvent}
+                    joinEvent={onJoinEvent}
+                    unjoinEvent={onUnjoinEvent}
                   />
                 ))}
               </div>
