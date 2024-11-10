@@ -47,7 +47,7 @@ export default function AppHeader({ name }: { name: string }) {
             className=" ml-3"
             onClick={() => router.push("/test-cristi/account")}
           >
-            <div className="h-11 w-11 rounded-full flex items-center justify-center bg-primary text-xl font-bold">
+            <div className="h-11 w-11 rounded-full flex items-center justify-center bg-primary hover:bg-secondary text-xl font-bold">
               {name[0].toUpperCase()}
             </div>
           </button>
