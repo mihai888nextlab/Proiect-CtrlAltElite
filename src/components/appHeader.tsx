@@ -15,28 +15,28 @@ export default function AppHeader({ name }: { name: string }) {
           </h1>
         </div>
         <div className="h-full flex items-center">
-          <div className="flex flex-col items-center mx-3 cursor-pointer">
-            <button className="" onClick={() => router.push("/app")}>
+          <div className="flex flex-col items-center mx-3 cursor-pointer hover:text-primary">
+            <button className="hover:text-primary" onClick={() => router.push("/app")}>
               <FaForumbee className="text-3xl" />        
             </button>
 
-            <button className="font-semibold text-xs " >Comunities</button>
+            <button className="font-semibold text-xs hover:text-primary" >Comunities</button>
           </div>
 
-          <div className="flex flex-col items-center mx-3 cursor-pointer">
-            <button className="" onClick={() => router.push("/events")}>
+          <div className="flex flex-col items-center mx-3 cursor-pointer hover:text-primary">
+            <button className="hover:text-primary" onClick={() => router.push("/events")}>
               <MdEventNote className="text-3xl" />
             </button>
 
-            <button className="font-semibold text-xs">Events</button>
+            <button className="font-semibold text-xs hover:text-primary">Events</button>
           </div>
 
-          <div className="flex flex-col items-center mx-3 cursor-pointer">
-          <button className="" onClick={() => router.push("/app")}>
+          <div className="flex flex-col items-center mx-3 cursor-pointer hover:text-primary">
+          <button className="hover:text-primary" onClick={() => router.push("/app")}>
             <TiMessages className="text-3xl" />        </button>
             <button className="font-semibold text-xs " >Messages</button>
             </div>
-          <div className="flex flex-col items-center mx-3 cursor-pointer">
+          <div className="flex flex-col items-center mx-3 cursor-pointer hover:text-primary">
             <button className="" onClick={() => router.push("/friends")}>
               <FaUserFriends className="text-3xl" />
             </button>
