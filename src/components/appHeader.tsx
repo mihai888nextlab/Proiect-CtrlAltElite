@@ -23,7 +23,7 @@ export default function AppHeader({ name }: { name: string }) {
             <button className="font-semibold text-xs " >Comunities</button>
           </div>
 
-          <div className="flex flex-col items-center mx-3 mr-[30rem] cursor-pointer">
+          <div className="flex flex-col items-center mx-3 cursor-pointer">
             <button className="" onClick={() => router.push("/events")}>
               <MdEventNote className="text-3xl" />
             </button>
