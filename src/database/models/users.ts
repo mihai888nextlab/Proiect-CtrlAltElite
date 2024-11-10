@@ -21,6 +21,10 @@ const userSchema = new mongoose.Schema({
     type: Array,
     default: [],
   },
+  events: {
+    type: Array,
+    default: [],
+  },
 });
 
 const userModel = mongoose.models.users || mongoose.model("users", userSchema);

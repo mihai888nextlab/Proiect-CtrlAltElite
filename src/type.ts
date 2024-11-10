@@ -5,6 +5,7 @@ interface User {
   email: string;
   password: string;
   communities: string[];
+  events: string[];
 }
 
 interface Community {
@@ -25,6 +26,7 @@ interface Post {
 }
 
 interface EventType {
+  _id: string;
   name: string;
   description: string;
   date: Date;

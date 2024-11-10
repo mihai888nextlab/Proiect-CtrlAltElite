@@ -9,6 +9,8 @@ import { GetServerSideProps } from "next";
 import { Post } from "@/type";
 import UserPfp from "@/components/userPfp";
 import EventComponent from "@/components/event";
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import AddEventModal from "@/components/modals/addEventModal";
 
 export const getServerSideProps = (async (context) => {
   const cookies = context.req.headers.cookie
@@ -176,6 +178,8 @@ export default function Comunity({
   const [loading, setLoading] = useState(false);
   const [selected, setSelected] = useState("about");
 
+  const [modalOpen, setModalOpen] = useState("");
+
   const onMessageSend = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -209,10 +213,74 @@ export default function Comunity({
     window.location.reload();
   };
 
+  const onAddEventSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    let formData = new FormData(e.currentTarget);
+    let name = formData.get("name") as string;
+    let description = formData.get("description") as string;
+    let date = formData.get("date") as string;
+    let location = formData.get("location") as string;
+
+    setLoading(true);
+
+    const response = await fetch("/api/addEvent", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        description,
+        date,
+        location,
+        group: router.query.communityId,
+        organiser: user._id,
+      }),
+    });
+
+    if (!response.ok) {
+      const data = await response.json();
+      setError(data.error);
+      setLoading(false);
+      return;
+    }
+
+    window.location.reload();
+  };
+
+  const onJoinEvent = async (eventId: string) => {
+    setLoading(true);
+
+    const response = await fetch("/api/joinEvent", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ eventId, user }),
+    });
+
+    if (!response.ok) {
+      const data = await response.json();
+      setError(data.error);
+      setLoading(false);
+      return;
+    }
+
+    window.location.reload();
+  };
+
   return (
     <div>
       {error && <Error message={error} onClose={() => setError("")} />}
       {loading && <Loading />}
+
+      {modalOpen == "addEvent" && (
+        <AddEventModal
+          onCLose={() => setModalOpen("")}
+          onSubmit={onAddEventSubmit}
+        />
+      )}
 
       <AppHeader name={user.username} />
       <main className="bg-background min-h-screen pt-[75px] font-sans px-36 pb-10">
@@ -342,12 +410,22 @@ export default function Comunity({
         {selected == "events" && (
           <div className="w-full flex justify-center">
             <div className="w-2/3 p-4 rounded-xl border-2 bg-white">
-              <h2 className="text-2xl font-bold mb-6">Events in this group</h2>
-              {/* <p>No events yet</p> */}
+              <h2 className="text-2xl font-bold mb-6 inline-flex items-center">
+                Events in this group{" "}
+                <AiOutlinePlusCircle
+                  className="ml-2 cursor-pointer hover:text-primary"
+                  onClick={() => setModalOpen("addEvent")}
+                />
+              </h2>
+              {!events.length && <p>No events yet</p>}
 
-              <div className="grid grid-cols-3">
+              <div className="grid grid-cols-3 gap-2">
                 {events.map((event) => (
-                  <EventComponent event={event} />
+                  <EventComponent
+                    event={event}
+                    attending={user.events.includes(event._id)}
+                    onBtnClick={onJoinEvent}
+                  />
                 ))}
               </div>
             </div>

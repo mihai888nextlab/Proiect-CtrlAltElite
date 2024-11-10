@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { memo } from "react";
 
 const eventSchema = new mongoose.Schema({
   name: {
@@ -24,6 +25,10 @@ const eventSchema = new mongoose.Schema({
   organiser: {
     type: String,
     required: true,
+  },
+  members: {
+    type: Number,
+    default: 0,
   },
 });
 
