@@ -1,6 +1,8 @@
 import { TiMessages } from "react-icons/ti";
 import { FaUserFriends } from "react-icons/fa";
 import { useRouter } from "next/router";
+import { MdEventNote } from "react-icons/md";
+import { FaForumbee } from "react-icons/fa";
 
 export default function AppHeader({ name }: { name: string }) {
   const router = useRouter();
@@ -13,6 +15,22 @@ export default function AppHeader({ name }: { name: string }) {
           </h1>
         </div>
         <div className="h-full flex items-center">
+          <div className="flex flex-col items-center mx-3 cursor-pointer">
+            <button className="" onClick={() => router.push("/app")}>
+              <FaForumbee className="text-3xl" />        
+            </button>
+
+            <button className="font-semibold text-xs " >Comunities</button>
+          </div>
+
+          <div className="flex flex-col items-center mx-3 mr-[30rem] cursor-pointer">
+            <button className="" onClick={() => router.push("/events")}>
+              <MdEventNote className="text-3xl" />
+            </button>
+
+            <button className="font-semibold text-xs">Events</button>
+          </div>
+
           <div className="flex flex-col items-center mx-3 cursor-pointer">
           <button className="" onClick={() => router.push("/app")}>
             <TiMessages className="text-3xl" />        </button>
