@@ -1,4 +1,5 @@
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 export default function Contact(){
     return(
@@ -19,7 +20,8 @@ export default function Contact(){
                         <link rel="stylesheet" href="https://www.google.com/map/place/McDonald's/@45.7874917,21.238104,16.04z/data=!4m6!3m5!1s0x474567a8fb184d0f:0x90b5da871675e4a5!8m2!3d45.7864125!4d21.2374908!16s%2Fg%2F11t4_cw70c?entry=ttu&g_ep=EgoyMDI0MTEwNi4wIKXMDSoASAFQAw%3D%3D" />
                     </div>          
             </main>
-            </div>
+            <Footer/>
+        </div>
     )
 
 }

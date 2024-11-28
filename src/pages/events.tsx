@@ -1,4 +1,5 @@
 import AppHeader from "@/components/appHeader";
+import Footer from "@/components/footer";
 import { Community, User } from "@/type";
 import { GetServerSideProps } from "next";
 import * as cookieModule from "cookie";
@@ -141,7 +142,7 @@ export default function EventsDashboard({
           ))}
         </div>
       </main>
-      <footer></footer>
+      <Footer/>
     </div>
   );
 }
